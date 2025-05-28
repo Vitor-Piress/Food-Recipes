@@ -1,0 +1,15 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0.5rem;
+  color: #2c2c2c;
+}
+
+@media (max-width: 48rem) {
+  body {
+    margin: 0;
+  }
+}

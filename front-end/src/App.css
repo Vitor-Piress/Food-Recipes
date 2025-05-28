@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lightgray: #f9f9f9;
+  --color-lightwhite: #fefefe;
+  --color-textgray: #393939;
+}
+
+.red {
+  color: #d20b0b;
+  background-color: #ffacac;
+}
+
+.blue {
+  color: #0b78d2;
+  background-color: #b1dcff;
+}
+
+.green {
+  color: #08ca2c;
+  background-color: #c6ffd1;
+}
+
+/* @media (max-width: 900px) {
+  #nav-bar {
+    background-color: transparent;
+  }
+} */
