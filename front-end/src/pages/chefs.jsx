@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/Card";
+import ChefCards from "../components/ChefCards";
 import { useLocation } from "react-router-dom";
 
-const home = () => {
+const chefs = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const isChefs = currentPath === "/chefs";
   const [isVisible, setIsVisible] = useState(false);
 
-  const isHome = currentPath === "/home";
-
   useEffect(() => {
-    if (isHome) {
+    if (isChefs) {
       // Anima a entrada quando a página carrega
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [isHome]);
+  }, [isChefs]);
 
-  // Se não estiver na home, não renderiza nada
-  if (!isHome) {
+  if (!isChefs) {
     return null;
   }
 
@@ -40,12 +38,11 @@ const home = () => {
     { category: "green", delay: 600 },
     { category: "green", delay: 650 },
     { category: "green", delay: 700 },
+    { category: "green", delay: 750 },
   ];
 
   return (
-    <main
-      className={`grid grid-cols-1 mx-1 gap-[3%] sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] h-full transition-all duration-800 ease-out transform `}
-    >
+    <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
       {cards.map((card, index) => (
         <div
           key={index}
@@ -58,11 +55,11 @@ const home = () => {
             transitionDelay: isVisible ? `${card.delay}ms` : "0ms",
           }}
         >
-          <Card category={card.category} />
+          <ChefCards />
         </div>
       ))}
-    </main>
+    </div>
   );
 };
 
-export default home;
+export default chefs;

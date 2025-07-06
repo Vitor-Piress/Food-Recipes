@@ -1,26 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Card from "../components/Card";
+import Card from "../components/CategoriesCard";
 import { useLocation } from "react-router-dom";
 
-const home = () => {
+const categories = () => {
   const location = useLocation();
   const currentPath = location.pathname;
+  const isCategories = currentPath === "/categories";
   const [isVisible, setIsVisible] = useState(false);
 
-  const isHome = currentPath === "/home";
-
   useEffect(() => {
-    if (isHome) {
+    if (isCategories) {
       // Anima a entrada quando a página carrega
       const timer = setTimeout(() => {
         setIsVisible(true);
       }, 100);
       return () => clearTimeout(timer);
     }
-  }, [isHome]);
+  }, [isCategories]);
 
-  // Se não estiver na home, não renderiza nada
-  if (!isHome) {
+  if (!isCategories) {
     return null;
   }
 
@@ -43,9 +41,7 @@ const home = () => {
   ];
 
   return (
-    <main
-      className={`grid grid-cols-1 mx-1 gap-[3%] sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] h-full transition-all duration-800 ease-out transform `}
-    >
+    <main className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[2%]">
       {cards.map((card, index) => (
         <div
           key={index}
@@ -65,4 +61,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default categories;

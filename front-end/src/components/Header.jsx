@@ -1,49 +1,139 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import logo from "../assets/food-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import "animate.css";
 
 const Header = () => {
+  const [filterPopUp, setFilterPopUp] = useState(false);
+
+  const filterPopUpRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        filterPopUpRef.current &&
+        !filterPopUpRef.current.contains(event.target)
+      ) {
+        setFilterPopUp(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
+  const isHome = currentPath === "/home";
+  const isChef = currentPath === "/chefs";
+  const isCategorie = currentPath === "/categories";
+
   return (
-    <header className="bg-lightgray p-3.5 mb-8 flex place-content-between items-center text-textgray md:rounded-3xl ">
-      <Link to="/home">
-        <img src={logo} alt="logo" className="w-10 h-10 cursor-pointer" />
+    // fixed top-0 left-0 right-0 z-50
+    <header className="bg-lightgray p-3.5 mb-7 flex place-content-between items-center text-textgray md:rounded-3xl">
+      <Link to="/">
+        <img
+          id="logo"
+          src={logo}
+          alt="logo"
+          className="w-10 h-10 cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
+        />
       </Link>
       <nav
         id="nav-bar"
         className="flex px-2 py-1 rounded-2xl justify-around  md:bg-lightwhite md:w-[30%] xl:w-[25%]"
       >
-        <a
-          href="#"
-          className=" py-1 rounded-xl px-2 md:px-1.5 hover:bg-lightwhite ease-in-out duration-[0.1s] md:hover:bg-lightgray"
+        <Link
+          to="/"
+          className={`py-1  rounded-xl px-2 md:px-1.5 transition-all ease-in-out duration-300 md:hover:null ${
+            isHome
+              ? "bg-gray-100 scale-105 visible"
+              : "bg-lightwhite scale-90 hover:bg-lightgray"
+          }`}
         >
-          Receitas
-        </a>
-        <a
-          href="#"
-          className=" py-1 rounded-xl px-2 md:px-1.5 hover:bg-lightwhite ease-in-out duration-[0.1s] md:hover:bg-lightgray "
+          Home
+        </Link>
+        <Link
+          to="/categories"
+          className={` py-1 rounded-xl px-2 md:px-1.5h transition-all ease-in-out duration-300 ${
+            isCategorie
+              ? "bg-gray-100 scale-105 visible"
+              : "bg-lightwhite scale-90 hover:bg-lightgray"
+          }`}
         >
-          Categorias
-        </a>
-        <a
-          href="#"
-          className=" py-1 rounded-xl px-2 md:px-1.5 hover:bg-lightwhite ease-in-out duration-[0.1s] md:hover:bg-lightgray"
+          Categories
+        </Link>
+        <Link
+          to="/chefs"
+          className={` py-1 rounded-xl px-2 md:px-1.5 transition-all ease-in-out duration-300 ${
+            isChef
+              ? "bg-gray-100 scale-105 visible"
+              : "bg-lightwhite scale-90 hover:bg-lightgray"
+          }`}
         >
-          Chef
-        </a>
+          Chefs
+        </Link>
       </nav>
 
-      <div
-        id="search-bar"
-        className="bg-lightwhite rounded-2xl hidden md:inline"
-      >
-        <input
-          type="text"
-          placeholder="Search"
-          className="rounded-xl px-1 py-0.5 text-sm m-2 "
-        />
-        <a className="mr-5">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </a>
+      <div id="right-content-container" className="flex justify-around gap-5 ">
+        <div
+          id="filter-container"
+          className="flex items-center text-gray-500  relative"
+          ref={filterPopUpRef}
+        >
+          <i
+            className="fa-solid fa-filter cursor-pointer"
+            onClick={() => setFilterPopUp(!filterPopUp)}
+          ></i>
+
+          {/* filter pop up */}
+          <div
+            id="filter-pop-up"
+            className={`flex flex-col gap-3 justify-center shadow-xl items-center bg-lightwhite absolute top-10 right-[-30px] z-100 p-2 rounded-2xl h-fit w-40 transition-all duration-300 ease-in-out transform origin-top-right ${
+              filterPopUp
+                ? "opacity-100 scale-100 visible"
+                : "opacity-0 scale-95 invisible"
+            }`}
+          >
+            <p className="font-bold">Filter</p>
+            <select
+              name="filter"
+              id="filter"
+              className="w-full bg-lightgray  text-gray-500 p-2 rounded-2xl h-fit cursor-pointer hover:bg-gray-100"
+            >
+              <option value="All">All</option>
+              <option value="Veg">Veg</option>
+              <option value="Non-Veg">Non-Veg</option>
+              <option value="Vegan">Vegan</option>
+              <option value="Gluten-Free">Gluten-Free</option>
+            </select>
+            <button className="bg-lightgray text-gray-500 p-2 rounded-2xl h-fit w-full cursor-pointer hover:bg-gray-100">
+              Clear Filters
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="search-bar"
+          className="bg-lightwhite rounded-2xl hidden md:inline  "
+        >
+          <input
+            type="text"
+            placeholder="Search"
+            className="rounded-xl px-1 py-0.5 text-sm m-2 "
+          />
+          <a className="mr-5">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </div>
+        <Link
+          id="user-container"
+          to="/user"
+          className="text-3xl flex items-center mr-2 text-gray-500"
+        >
+          <i class="fa-solid fa-circle-user"></i>
+        </Link>
       </div>
     </header>
   );
