@@ -8,11 +8,11 @@ import Categories from "./pages/categories";
 import User from "./pages/user";
 import Chefs from "./pages/chefs";
 
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
 
       <Routes>
@@ -24,7 +24,7 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/chefs" element={<Chefs />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

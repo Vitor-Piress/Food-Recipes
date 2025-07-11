@@ -1,6 +1,6 @@
 # Food Recipe App - Learning Project
 
-[View Live Demo](https://your-demo-link.com)
+<a href="https://vitor-piress.github.io/Food-Recipes/#/home" target="_blank" rel="noopener noreferrer">View Live Demo</a>
 
 This is a learning project designed to practice modern web development technologies. The project is a food recipe application that demonstrates the implementation of various frontend technologies and best practices.
 
@@ -36,7 +36,7 @@ This project serves as a hands-on learning experience for:
 ## 📁 Project Structure
 
 ```
-front-end/
+Food-Recipes/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/         # Reusable React components
@@ -57,6 +57,7 @@ front-end/
 │   ├── App.css            # Application styles
 │   ├── index.css          # Global styles
 │   └── main.jsx           # Application entry point
+├── dist/                  # Built files (generated)
 ├── package.json           # Dependencies and scripts
 ├── vite.config.js         # Vite configuration
 └── eslint.config.js       # ESLint configuration
@@ -77,16 +78,10 @@ Make sure you have the following installed on your system:
 
    ```bash
    git clone <repository-url>
-   cd Food-Recipes
+   cd A3-UDWMJ-SKETCH
    ```
 
-2. **Navigate to the frontend directory**:
-
-   ```bash
-   cd front-end
-   ```
-
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
@@ -127,6 +122,14 @@ To check code quality and consistency:
 npm run lint
 ```
 
+#### Deploy to GitHub Pages
+
+To deploy the application to GitHub Pages:
+
+```bash
+npm run deploy
+```
+
 ## 📱 Application Features
 
 The food recipe application includes the following pages and features:
@@ -165,7 +168,7 @@ To better understand the technologies used in this project:
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 - [Vite Documentation](https://vitejs.dev/)
 
-## 📄 Goal
+## 📄 Licenses
 
 This project is for learning purposes only.
 
