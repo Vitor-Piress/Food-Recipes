@@ -1,5 +1,7 @@
 # Food Recipe App - Learning Project
 
+[View Live Demo](https://your-demo-link.com)
+
 This is a learning project designed to practice modern web development technologies. The project is a food recipe application that demonstrates the implementation of various frontend technologies and best practices.
 
 ## 🎯 Project Purpose
@@ -163,7 +165,7 @@ To better understand the technologies used in this project:
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 - [Vite Documentation](https://vitejs.dev/)
 
-## 📄 License
+## 📄 Goal
 
 This project is for learning purposes only.
 
