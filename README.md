@@ -78,7 +78,7 @@ Make sure you have the following installed on your system:
 
    ```bash
    git clone <repository-url>
-   cd A3-UDWMJ-SKETCH
+   cd Food-Recipes
    ```
 
 2. **Install dependencies**:
