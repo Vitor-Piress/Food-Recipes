@@ -37,19 +37,19 @@ const Header = () => {
           id="logo"
           src={logo}
           alt="logo"
-          className="w-10 h-10 cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out"
+          className="w-10 h-10 cursor-pointer hover:scale-110 transition-all duration-500 ease-in-out object-contain"
         />
       </Link>
       <nav
         id="nav-bar"
-        className="flex px-2 py-1 rounded-2xl justify-around  md:bg-lightwhite md:w-[30%] xl:w-[25%]"
+        className="flex px-2 py-1 rounded-2xl justify-around md:bg-lightwhite lg:w-[30%] xl:w-[25%]"
       >
         <Link
           to="/"
           className={`py-1  rounded-xl px-2 md:px-1.5 transition-all ease-in-out duration-300 md:hover:null ${
             isHome
               ? "bg-gray-100 scale-105 visible"
-              : "bg-lightwhite scale-90 hover:bg-lightgray"
+              : "sm:bg-lightwhite bg-transparent scale-90 hover:bg-lightgray"
           }`}
         >
           Home
@@ -59,7 +59,7 @@ const Header = () => {
           className={` py-1 rounded-xl px-2 md:px-1.5h transition-all ease-in-out duration-300 ${
             isCategorie
               ? "bg-gray-100 scale-105 visible"
-              : "bg-lightwhite scale-90 hover:bg-lightgray"
+              : "sm:bg-lightwhite bg-transparent  scale-90 hover:bg-lightgray"
           }`}
         >
           Categories
@@ -69,7 +69,7 @@ const Header = () => {
           className={` py-1 rounded-xl px-2 md:px-1.5 transition-all ease-in-out duration-300 ${
             isChef
               ? "bg-gray-100 scale-105 visible"
-              : "bg-lightwhite scale-90 hover:bg-lightgray"
+              : "sm:bg-lightwhite bg-transparent scale-90 hover:bg-lightgray"
           }`}
         >
           Chefs
@@ -79,7 +79,7 @@ const Header = () => {
       <div id="right-content-container" className="flex justify-around gap-5 ">
         <div
           id="filter-container"
-          className="flex items-center text-gray-500  relative"
+          className="hidden items-center text-gray-500 relative ssm:flex"
           ref={filterPopUpRef}
         >
           <i

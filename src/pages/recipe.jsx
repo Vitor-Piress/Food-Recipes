@@ -24,17 +24,17 @@ const recipe = () => {
 
   return (
     <div
-      className={`h-[calc(90vh-50px)] flex justify-center items-center transition-all duration-700 ease-out transform ${
+      className={`md:h-[calc(90vh-50px)] h-100% flex justify-center items-center transition-all duration-700 ease-out transform ${
         isVisible
           ? "opacity-100 scale-100 translate-y-0"
           : "opacity-0 scale-95 translate-y-4"
       }`}
       style={{ transitionDelay: isVisible ? "100ms" : "0ms" }}
     >
-      <main className="flex justify-around gap-10 w-[70%] h-[90%] bg-lightgray p-4 rounded-3xl overflow-hidden">
+      <main className="flex md:flex-row flex-col justify-around gap-10 md:w-[70%] w-full h-[90%] md:bg-lightgray bg-transparent p-4 rounded-3xl overflow-hidden">
         <div
           id="image-container"
-          className="h-[100%] w-[50%] shadow-xl overflow-hidden rounded-3xl relative group cursor-pointer"
+          className="h-[100%] md:w-[50%] w-full shadow-xl overflow-hidden rounded-3xl relative group cursor-pointer"
         >
           <img
             src={img}
@@ -48,13 +48,16 @@ const recipe = () => {
             <i class="fa-solid fa-play"></i>
           </div>
         </div>
-        <aside id="content-container" className="w-[50%] overflow-scroll p-1">
+        <aside
+          id="content-container"
+          className="md:w-[50%] w-full md:overflow-scroll overflow-visible p-1"
+        >
           <h2 id="recipe-title" className="text-4xl font-bold mt-1 mb-3 ">
             Lemon Herb Chicken Piccata
           </h2>
           <h3
             id="recipe-ingredients-title"
-            className="text-xl mb-1.5 font-bold"
+            className="text-xl mb-1.5 mt-2 font-bold"
           >
             Ingredients
           </h3>
@@ -72,7 +75,7 @@ const recipe = () => {
               <li>White wine</li>
             </ol>
           </div>
-          <h3 id="instruction-title" className="text-xl mb-1.5 font-bold">
+          <h3 id="instruction-title" className="text-xl mb-1.5 mt-2 font-bold">
             Instructions
           </h3>
           <p id="instruction-text" className="mb-2">
@@ -86,23 +89,23 @@ const recipe = () => {
             modi magnam illo omnis labore laborum, officiis mollitia suscipit!
           </p>
           <div id="time-container" className="mb-4">
-            <h3 className="text-xl mb-1.5 font-bold">Tempo de Preparo</h3>
+            <h3 className="text-xl mb-1.5 mt-2 font-bold">Tempo de Preparo</h3>
             <p className="mb-2">00:45 (quarenta e cinco minutos)</p>
           </div>
           <div
             id="table-container"
-            className="grid grid-cols-[repeat(auto-fit,minmax(90px,1fr))] mr-2 text-center border rounded-2xl"
+            className="grid grid-cols-2 md:grid-cols-4 gap-2 mr-2 text-center border rounded-2xl p-2"
           >
-            <p className="p-1">
+            <p className="p-2 text-sm md:text-base break-words">
               <span className="font-bold">Calories</span> <br /> 423kcal
             </p>
-            <p className="p-1">
+            <p className="p-2 text-sm md:text-base break-words">
               <span className="font-bold">Proteins</span> <br /> 23g
             </p>
-            <p className="p-1">
+            <p className="p-2 text-sm md:text-base break-words">
               <span className="font-bold">Lipids</span> <br /> 9g
             </p>
-            <p className="p-1">
+            <p className="p-2 text-sm md:text-base break-words">
               <span className="font-bold">Carbos</span> <br /> 30g
             </p>
           </div>

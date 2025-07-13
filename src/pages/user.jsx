@@ -46,13 +46,13 @@ const user = () => {
 
   return (
     <div
-      className={`h-[calc(90vh-50px)] flex justify-center items-center transition-all duration-700 ease-out transform ${
+      className={`md:h-[calc(90vh-50px)] h-100% flex justify-center items-center transition-all duration-700 ease-out transform ${
         isVisible
           ? "opacity-100 scale-100 translate-y-0"
           : "opacity-0 scale-95 translate-y-4"
       }`}
     >
-      <main className="flex justify-around w-[70%] h-[90%] bg-lightgray p-4 rounded-3xl relative">
+      <main className="flex md:flex-row flex-col justify-around sm:w-[70%] w-full h-[90%] sm:bg-lightgray bg-transparent p-4 rounded-3xl relative">
         <button
           id="home-button"
           className="absolute top-10 left-10 cursor-pointer group"
@@ -62,50 +62,63 @@ const user = () => {
             <i className="fa-solid fa-house-chimney text-gray-500 group-hover:text-gray-700"></i>
           </Link>
         </button>
-        <aside className="flex flex-col justify-center items-center w-2/5">
+        <aside className="flex flex-col justify-center items-center md:w-2/5 w-full">
           <div
             id="user-photo"
-            className="flex justify-center items-center relative mb-8 group cursor-pointer"
+            className="flex justify-center items-center relative mb-4 md:mb-8 group cursor-pointer"
           >
-            <p className="absolute text-2xl text-white font-bold hidden group-hover:flex">
+            <p className="absolute md:text-2xl text-xl text-center text-white font-bold hidden group-hover:flex">
               Change Photo
             </p>
-            <i class="fa-solid fa-circle-user text-gray-500 text-[12rem] group-hover:text-gray-700"></i>
+            <i class="fa-solid fa-circle-user text-gray-500 text-[6rem] sm:text-[8rem] md:text-[10rem] lg:text-[12rem] group-hover:text-gray-700 transition-all duration-300"></i>
           </div>
-          <nav className="flex flex-col gap-4 items-center w-full">
+          <nav className="flex md:flex-col flex-row gap-2 md:gap-4 items-center w-full mb-5 md:mb-0 flex-wrap justify-center">
             <p
               onClick={() => {
                 setMenuSelecionado("account");
                 setResetAccountTrigger((prev) => prev + 1);
               }}
-              className={`bg-lightwhite text-gray-500 rounded-2xl cursor-pointer px-2 py-2 w-2/3 text-center durantion-300 hover:bg-lightgray ${
-                isAccount && "font-bold"
+              className={`md:bg-lightwhite text-gray-500 rounded-xl cursor-pointer px-2 py-1 md:py-2 w-auto md:w-2/3 text-center text-sm md:text-base durantion-300 hover:bg-lightgray transition-all ease-in-out duration-300 ${
+                isAccount
+                  ? "bg-gray-100 font-bold scale-105 visible"
+                  : "scale-90 hover:bg-lightgray"
               }`}
             >
               Account
             </p>
             <p
               onClick={() => setMenuSelecionado("preferences")}
-              className={`bg-lightwhite text-gray-500 rounded-2xl cursor-pointer px-2 py-2 w-2/3 text-center durantion-300 hover:bg-lightgray ${
-                isPreferences && "font-bold"
+              className={`md:bg-lightwhite text-gray-500 rounded-xl cursor-pointer px-2 py-1 md:py-2 w-auto md:w-2/3 text-center text-sm md:text-base durantion-300 hover:bg-lightgray transition-all ease-in-out duration-300 ${
+                isPreferences
+                  ? "bg-gray-100 font-bold scale-105 visible"
+                  : "scale-90 hover:bg-lightgray"
               }`}
             >
               Preferences
             </p>
             <p
               onClick={() => setMenuSelecionado("licenses")}
-              className={`bg-lightwhite text-gray-500 rounded-2xl cursor-pointer px-2 py-2 w-2/3 text-center durantion-300 hover:bg-lightgray ${
-                isLicenses && "font-bold"
+              className={`md:bg-lightwhite text-gray-500 rounded-xl cursor-pointer px-2 py-1 md:py-2 w-auto md:w-2/3 text-center text-sm md:text-base durantion-300 hover:bg-lightgray transition-all ease-in-out duration-300 ${
+                isLicenses
+                  ? "bg-gray-100 font-bold scale-105 visible"
+                  : "scale-90 hover:bg-lightgray"
               }`}
             >
               Licenses
             </p>
-            <p className="bg-lightwhite text-gray-500 rounded-2xl cursor-pointer px-2 py-2 w-2/3 text-center durantion-300 hover:bg-lightgray">
+            <p className="md:bg-lightwhite md:block hidden text-gray-500 rounded-xl scale-90 cursor-pointer px-2 py-1 md:py-2 w-auto md:w-2/3 text-center text-sm md:text-base durantion-300 hover:bg-lightgray">
               Logout
             </p>
           </nav>
         </aside>
-        <section className="my-auto w-3/5">{renderContent()}</section>
+        <section className="my-auto md:w-3/5 w-full mb-5">
+          {renderContent()}
+        </section>
+        <div id="logout-small-breakpoint">
+          <p className="md:hidden block text-gray-500 rounded-xl cursor-pointer px-2 py-1 md:py-2 w-auto md:w-2/3 text-center text-sm md:text-base durantion-300 hover:bg-lightgray">
+            Logout
+          </p>
+        </div>
       </main>
     </div>
   );

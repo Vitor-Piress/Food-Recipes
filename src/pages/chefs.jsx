@@ -42,7 +42,7 @@ const chefs = () => {
   ];
 
   return (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-5">
+    <div className="grid mx-1 lg:gap-[3%] gap-y-[0.5%] gap-x-[3%] grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
       {cards.map((card, index) => (
         <div
           key={index}

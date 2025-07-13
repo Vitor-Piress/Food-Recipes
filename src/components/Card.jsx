@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const Card = (props) => {
   const [liked, setLiked] = useState(false);
   return (
-    <div id="card-container" className="group relative">
+    <div id="card-container" className="group relative mx-4 md:mx-0">
       <div
         id="heart-container"
         onClick={() => setLiked(!liked)}
-        className={`absolute p-3 text-3xl top-0 right-0 hover:text-4xl duration-300 z-10 cursor-pointer`}
+        className={`absolute p-4 text-3xl top-0 right-0 hover:text-4xl duration-300 z-10 cursor-pointer`}
       >
         <i
           class={`fa-heart ${
@@ -19,7 +19,7 @@ const Card = (props) => {
       </div>
       <Link
         to="/recipe"
-        className="flex justify-center h-60 overflow-hidden rounded-3xl shadow-md relative "
+        className="flex justify-center lg:h-60 h-80 overflow-hidden rounded-3xl shadow-md relative "
       >
         <img
           src={img}
@@ -27,11 +27,10 @@ const Card = (props) => {
           className="w-full h-full object-cover group-hover:scale-102 duration-300"
         />
       </Link>
-      <section
-        id="card-title"
-        className="flex justify-between items-center my-2"
-      >
-        <h2 className="text-3xl font-bold truncate ">Lemon Herb Chicken</h2>
+      <section id="card-title" className="flex justify-between items-center">
+        <h2 className="text-3xl font-bold truncate mt-2 ">
+          Lemon Herb Chicken
+        </h2>
         <p id="card-category">
           <span
             className={`${props.category} px-3 py-1 rounded-3xl uppercase text-sm`}

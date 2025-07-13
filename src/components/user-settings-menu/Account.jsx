@@ -28,8 +28,8 @@ const Account = ({ resetTrigger }) => {
   };
   const ChangeUsername = () => {
     return (
-      <div className="flex flex-col gap-4 h-full  items-center text-gray-500 relative">
-        <div id="arrow-back" className="absolute top-1.5 left-20">
+      <div className="flex flex-col gap-4 h-full items-center text-gray-500 relative">
+        <div id="arrow-back" className="absolute top-1.5 md:left-15 left-3">
           <i
             class="fa-solid fa-arrow-left cursor-pointer"
             onClick={() => {
@@ -39,7 +39,7 @@ const Account = ({ resetTrigger }) => {
         </div>
         <div
           id="actual-username-container"
-          className="w-1/2 bg-lightwhite p-1 rounded-2xl"
+          className="w-[80%] md:w-full bg-lightgray p-1 rounded-2xl"
         >
           <input
             type="text"
@@ -52,7 +52,7 @@ const Account = ({ resetTrigger }) => {
         <form className="flex flex-col gap-4 items-center w-full">
           <div
             id="new-username-container"
-            className="w-1/2 bg-lightwhite p-1 rounded-2xl"
+            className="w-[80%] md:w-full bg-lightgray p-1 rounded-2xl"
           >
             <input
               type="text"
@@ -63,7 +63,7 @@ const Account = ({ resetTrigger }) => {
 
           <div
             id="username-container"
-            className="w-1/2 bg-lightwhite p-1 rounded-2xl mb-5"
+            className="w-[80%] md:w-full bg-lightgray p-1 rounded-2xl mb-5"
           >
             <input
               type="text"
@@ -79,17 +79,17 @@ const Account = ({ resetTrigger }) => {
 
   const Default = () => {
     return (
-      <div className="flex flex-col gap-4 h-full  items-center text-gray-500">
+      <div className="flex flex-col gap-4 h-full justify-center items-center text-gray-500">
         <div
           id="username-container"
-          className="w-1/2 bg-lightwhite p-1 rounded-2xl"
+          className="w-full bg-lightgray p-1 rounded-2xl"
         >
           <input type="text" value="username" disabled className="p-1" />
         </div>
 
         <div
           id="password-container"
-          className="flex items-center w-1/2 bg-lightwhite p-1 rounded-2xl"
+          className="flex items-center w-full bg-lightgray p-1 rounded-2xl"
         >
           <input
             type={slash ? "text" : "password"}
@@ -107,7 +107,7 @@ const Account = ({ resetTrigger }) => {
 
         <div
           id="email-container"
-          className="w-1/2 bg-lightwhite p-1 rounded-2xl mb-5"
+          className="w-full bg-lightgray p-1 rounded-2xl mb-5"
         >
           <input
             type="email"
