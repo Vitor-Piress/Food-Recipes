@@ -44,7 +44,7 @@ const home = () => {
 
   return (
     <main
-      className={`grid grid-cols-1 mx-1 lg:gap-[2%] gap-y-[0.5%] gap-x-[3%] sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] h-full transition-all duration-800 ease-out transform `}
+      className={`grid grid-cols-1 mx-1 lg:gap-[2%] gap-y-[0.5%] gap-x-[3%] sm:grid-cols-[repeat(auto-fit,minmax(440px,1fr))] h-full transition-all duration-800 ease-out transform pb-20 mt-5`}
     >
       {cards.map((card, index) => (
         <div

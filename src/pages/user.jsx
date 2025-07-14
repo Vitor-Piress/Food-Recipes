@@ -46,7 +46,7 @@ const user = () => {
 
   return (
     <div
-      className={`md:h-[calc(90vh-50px)] h-100% flex justify-center items-center transition-all duration-700 ease-out transform ${
+      className={`md:h-[calc(90vh-50px)] h-100% flex justify-center items-center transition-all duration-700 ease-out transform mt-5 md:mt-0 ${
         isVisible
           ? "opacity-100 scale-100 translate-y-0"
           : "opacity-0 scale-95 translate-y-4"
@@ -111,7 +111,7 @@ const user = () => {
             </p>
           </nav>
         </aside>
-        <section className="my-auto md:w-3/5 w-full mb-5">
+        <section className="flex justify-center h-full my-auto md:w-3/5 w-full mb-5">
           {renderContent()}
         </section>
         <div id="logout-small-breakpoint">

@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     // fixed top-0 left-0 right-0 z-50
-    <header className="bg-lightgray p-3.5 mb-7 flex place-content-between items-center text-textgray md:rounded-3xl">
+    <header className="bg-lightgray m-2 md:m-0 shadow-md sm:shadow-none p-3.5 flex place-content-between items-center text-textgray rounded-3xl fixed bottom-0 sm:static sm:bottom-auto sm:top-auto sm:right-auto sm:left-auto sm:z-auto right-0 left-0 z-50">
       <Link to="/">
         <img
           id="logo"

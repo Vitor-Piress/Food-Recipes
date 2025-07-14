@@ -24,7 +24,7 @@ const recipe = () => {
 
   return (
     <div
-      className={`md:h-[calc(90vh-50px)] h-100% flex justify-center items-center transition-all duration-700 ease-out transform ${
+      className={`md:h-[calc(90vh-50px)] h-100% flex mb-20 sm:mb-0 justify-center items-center transition-all duration-700 ease-out transform ${
         isVisible
           ? "opacity-100 scale-100 translate-y-0"
           : "opacity-0 scale-95 translate-y-4"

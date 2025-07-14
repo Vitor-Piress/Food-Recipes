@@ -82,20 +82,25 @@ const Account = ({ resetTrigger }) => {
       <div className="flex flex-col gap-4 h-full justify-center items-center text-gray-500">
         <div
           id="username-container"
-          className="w-full bg-lightgray p-1 rounded-2xl"
+          className="md:w-2/3 w-full sm:bg-lightwhite bg-lightgray p-1 rounded-2xl"
         >
-          <input type="text" value="username" disabled className="p-1" />
+          <input
+            type="text"
+            value="username"
+            disabled
+            className="p-1 w-full truncate"
+          />
         </div>
 
         <div
           id="password-container"
-          className="flex items-center w-full bg-lightgray p-1 rounded-2xl"
+          className="flex items-center md:w-2/3 w-full sm:bg-lightwhite bg-lightgray p-1 rounded-2xl"
         >
           <input
             type={slash ? "text" : "password"}
             value="password"
             disabled
-            className="p-1 w-full"
+            className="p-1 w-full truncate"
           />
           <i
             className={`fa-solid px-1.5 cursor-pointer ${
@@ -107,13 +112,13 @@ const Account = ({ resetTrigger }) => {
 
         <div
           id="email-container"
-          className="w-full bg-lightgray p-1 rounded-2xl mb-5"
+          className="sm:w-2/3 w-full sm:bg-lightwhite bg-lightgray p-1 rounded-2xl mb-5"
         >
           <input
             type="email"
             value="useremail@email.com"
             disabled
-            className="p-1 "
+            className="p-1 w-full trucante"
           />
         </div>
 
