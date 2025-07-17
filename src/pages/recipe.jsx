@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import img from "../assets/hd-food.jpg";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const recipe = () => {
   const location = useLocation();
   const currentPath = location.pathname;
   const isRecipe = currentPath === "/recipe";
   const [isVisible, setIsVisible] = useState(false);
+  const [liked, setLiked] = useState(false);
 
   useEffect(() => {
     if (isRecipe) {
@@ -36,11 +37,29 @@ const recipe = () => {
           id="image-container"
           className="h-[100%] md:w-[50%] w-full shadow-xl overflow-hidden rounded-3xl relative group cursor-pointer"
         >
+          <Link
+            to="/home"
+            className="flex gap-1 absolute z-50 top-0 left-0 p-6 text-2xl ease-in-out duration-300 "
+          >
+            <i className="fa-solid fa-circle-arrow-left text-white hover:scale-106 duration-300 ease-in-out"></i>
+          </Link>
+          <div
+            id="heart-container"
+            onClick={() => setLiked(!liked)}
+            className={`absolute p-4 text-3xl top-0 right-0 hover:scale-106 duration-300 z-10 cursor-pointer`}
+          >
+            <i
+              class={`fa-heart ${
+                liked ? "fa-solid text-red-500" : "fa-regular text-white"
+              } duration-300`}
+            ></i>
+          </div>
           <img
             src={img}
             alt="Food Logo"
             className="h-full w-full object-cover group-hover:brightness-70 duration-150"
           />
+
           <div
             id="play-button"
             className="absolute inset-0 items-center justify-center text-8xl text-lightwhite text-shadow-md hidden group-hover:flex"

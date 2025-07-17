@@ -9,7 +9,7 @@ const Card = (props) => {
       <div
         id="heart-container"
         onClick={() => setLiked(!liked)}
-        className={`absolute p-4 text-3xl top-0 right-0 hover:text-4xl duration-300 z-10 cursor-pointer`}
+        className={`absolute p-4 text-3xl top-0 right-0 hover:scale-110 duration-300 z-10 cursor-pointer`}
       >
         <i
           class={`fa-heart ${
