@@ -111,7 +111,7 @@ const user = () => {
             </p>
           </nav>
         </aside>
-        <section className="flex justify-center h-full my-auto md:w-3/5 w-full mb-5">
+        <section className="flex justify-center h-full md:w-3/5 w-full mb-5">
           {renderContent()}
         </section>
         <div id="logout-small-breakpoint">
