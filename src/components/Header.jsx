@@ -8,6 +8,8 @@ const Header = () => {
 
   const filterPopUpRef = useRef(null);
 
+  const selectFilter = document.getElementById("filter");
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -90,10 +92,10 @@ const Header = () => {
           {/* filter pop up */}
           <div
             id="filter-pop-up"
-            className={`flex flex-col gap-3 justify-center shadow-xl items-center bg-lightwhite absolute top-10 right-[-30px] z-100 p-2 rounded-2xl h-fit w-40 transition-all duration-300 ease-in-out transform origin-top-right ${
+            className={`flex flex-col gap-3 justify-center sm:shadow-xl shadow-xs items-center bg-lightwhite absolute sm:top-10 top-[-160px] right-[-30px] z-100 p-2 rounded-2xl h-fit w-40 transition-all duration-300 ease-in-out transform origin-top-right ${
               filterPopUp
                 ? "opacity-100 scale-100 visible"
-                : "opacity-0 scale-95 invisible"
+                : "opacity-0 scale-90 invisible"
             }`}
           >
             <p className="font-bold">Filter</p>
@@ -102,13 +104,18 @@ const Header = () => {
               id="filter"
               className="w-full bg-lightgray  text-gray-500 p-2 rounded-2xl h-fit cursor-pointer hover:bg-gray-100"
             >
-              <option value="All">All</option>
+              <option value="All" selected>
+                All
+              </option>
               <option value="Veg">Veg</option>
               <option value="Non-Veg">Non-Veg</option>
               <option value="Vegan">Vegan</option>
               <option value="Gluten-Free">Gluten-Free</option>
             </select>
-            <button className="bg-lightgray text-gray-500 p-2 rounded-2xl h-fit w-full cursor-pointer hover:bg-gray-100">
+            <button
+              className="bg-lightgray text-gray-500 p-2 rounded-2xl h-fit w-full cursor-pointer hover:bg-gray-100"
+              onClick={() => (selectFilter.value = "All")}
+            >
               Clear Filters
             </button>
           </div>
